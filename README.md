@@ -27,7 +27,7 @@ npm (installed globally)
 
 Steps
 Clone the repository:
-git clone https://github.com/Deveshsingh2004/DataTableAssignment.git
+git clone https://github.com/Deveshsingh2004/datatable_assignment.git
 cd DataTableAssignment
 
 Install dependencies:
