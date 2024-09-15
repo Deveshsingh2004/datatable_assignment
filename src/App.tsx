@@ -3,11 +3,14 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "./App.css";
 import DataTableDemo from "./components/DataTableComponent";
+import { SelectedRowsProvider } from "./context/SelectedRowsContext";
 
 function App() {
   return (
     <>
-      <DataTableDemo />
+      <SelectedRowsProvider>
+        <DataTableDemo />
+      </SelectedRowsProvider>
     </>
   );
 }

@@ -5,10 +5,11 @@ import { Column } from "primereact/column";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { fetchData, selectRecordsAcrossPages } from "../api/apiService";
 import { ArtData } from "../types/types";
+import { useSelectedRows } from "../context/SelectedRowsContext";
 
 const DataTableComponent: React.FC = () => {
   const [data, setData] = useState<ArtData[]>([]);
-  const [selectedRows, setSelectedRows] = useState<ArtData[]>([]);
+  const { selectedRows, setSelectedRows } = useSelectedRows();
   const [loading, setLoading] = useState<boolean>(true);
   const [totalRecords, setTotalRecords] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(0); // Page is 0-indexed
@@ -53,8 +54,8 @@ const DataTableComponent: React.FC = () => {
     setFirst(newPage * rowsPerPage); // Also update the first index for the DataTable
   };
 
-  const onSelectionChange = (e: { value: ArtData[] | ArtData }) => {
-    setSelectedRows(Array.isArray(e.value) ? e.value : [e.value]); // Ensure e.value is always an array
+  const onSelectionChange = (e: { value: ArtData[] }) => {
+    setSelectedRows(e.value);
   };
 
   const titleHeaderTemplate = (
