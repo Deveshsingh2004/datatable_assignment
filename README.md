@@ -1,50 +1,65 @@
-# React + TypeScript + Vite
+Features
+Data Table with Server-side Pagination: The table loads paginated data from an external API.
+Lazy Loading: Data is loaded on-demand as you navigate through pages.
+Row Selection: Users can select multiple rows across pages and manage the selection through a custom input panel.
+Custom Overlay Panel: A panel is used to input the number of rows to be selected.
+TypeScript Support: The project is written in TypeScript for improved type safety.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Technologies Used
+React for the user interface.
+PrimeReact for the DataTable and UI components.
+Axios for HTTP requests to fetch data from an API.
+TypeScript for type safety and better developer experience.
 
-Currently, two official plugins are available:
+Table of Contents
+Installation
+Usage
+API
+Acknowledgments
+Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+Follow these steps to set up the project on your local machine:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Prerequisites
+Node.js (version 14+ recommended)
+npm (installed globally)
 
-- Configure the top-level `parserOptions` property like this:
+Steps
+Clone the repository:
+git clone https://github.com/Deveshsingh2004/datatable_assignment.git
+cd DataTableAssignment
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Install dependencies:
+npm install
+Run the development server:
+npm run dev
+Open the application in your browser:
+http://localhost:3000
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Usage
+When the application is launched, you will see a data table displaying artwork details.
+You can navigate through the pages using the pagination controls at the bottom of the table.
+To select multiple rows, click the checkboxes in the first column of the table. The selection will be persisted even when you navigate across pages.
+Use the overlay panel (by clicking the arrow icon in the title column) to input the number of rows to be selected automatically.
+Available Scripts
+In the project directory, you can run:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+API
+Data Source
+The app fetches artwork data from the Art Institute of Chicago API.
+
+Endpoint: https://api.artic.edu/api/v1/artworks
+Request Parameters:
+page: Indicates the page number for pagination.
+Functions
+fetchData(page: number)
+Fetches artwork data from the API for the given page.
+
+selectRecordsAcrossPages
+Utility function for selecting multiple rows across pages based on the number of rows required.
+
+Acknowledgments
+PrimeReact for providing great UI components.
+Art Institute of Chicago API for the artwork dataset.
